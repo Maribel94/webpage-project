@@ -1,0 +1,294 @@
+
+body{
+    margin: 2em;
+    font-family: 'Outfit', sans-serif;
+    /*Color degradado*/
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#e6f0a3+0,d2e638+50,c3d825+51,dbf043+100;Green+Gloss+%232 */
+    background: #e6f0a3; /* Old browsers */
+    background: -moz-linear-gradient(45deg,  #e6f0a3 0%, #d2e638 50%, #c3d825 51%, #dbf043 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(45deg,  #e6f0a3 0%,#d2e638 50%,#c3d825 51%,#dbf043 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(45deg,  #e6f0a3 0%,#d2e638 50%,#c3d825 51%,#dbf043 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6f0a3', endColorstr='#dbf043',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+
+    /*FIN de Color degradado*/
+}
+.nav{
+    font-family: 'Outfit', sans-serif;
+    
+}
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Comfortaa', cursive;
+}
+.sombra{
+    text-shadow: 3px 3px 3px black;
+    }
+header .nav a:hover{
+	color:#f8ff90;
+	font-weight: bold;
+    font-size: 12pt;
+    text-align: center;
+	text-transform: uppercase;
+}
+header .nav-item-actual {
+    background:#527500;
+    border: 4px solid #ffa600;
+	border-radius: 10px;
+    text-decoration: none;
+    color: rgb(255, 255, 255); 
+    
+    width: 150px;
+    margin-right: 20px;
+    text-align: center;
+}
+
+header .nav-item {
+    background:#a7c957;
+    border: 2px solid #836607;
+	border-radius: 10px;
+    text-decoration: none;
+    color: rgb(9, 78, 3); 
+    font-size: 12pt;
+    font-weight: bold;
+
+    width: 150px;
+    text-align: center;
+    margin-right: 20px;
+    position: relative; /* Para que el interlineado esté debajo de cada palabra*/
+}
+/*---------------------*/
+.nav-item::before{
+    content: '';
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 3px;
+    bottom: 0px;
+    background-color: rgb(97, 63, 1);
+    left: 50%;
+    transition: width, 0.5s; /*para hacer que se desplace algo asi*/
+}
+
+.nav-item:hover::before{
+    width: 100%;
+    left: 0%;
+}
+
+
+/*---------------*/
+.cover{
+    height: 400px;
+    background-image: url(../img/rsz_teverde3.jpg); /* hasta aqui la imagen no esta centrada*/
+    color: white;
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.2); /*color negro + opacidad*/
+    background-blend-mode: darken;
+    font-family: 'Outfit', sans-serif;
+
+}
+.cover-small{
+    height:200px;
+    background-blend-mode: normal; /*para que las imagenes de las cajas no se vean oscuras*/
+}
+
+.card{
+    border: 0 !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.6); /* Con segunda sombra*/
+    font-family: 'Raleway', sans-serif;
+}
+/*para alinear las cajas: .card-title y .card-text*/
+.card-title{
+    min-height: 3rem;
+}
+.card-text{
+    min-height: 12rem;
+}
+/* Muestra o tira de productos -->*/
+.product-stripe {
+    overflow-x: scroll;  /*hidden quita el scroll horizontal 
+    pero tambien hace que desaparezcan algunos productos*/
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+.stripe-container {
+    display:flex;
+    /*flex-direction: por defecto es = row;*/   
+}
+.stripe-container .card{
+    width: 300px;
+    flex-shrink: 0; /* 0 si no queremos que las imagenes se redimensionen*/
+    margin-right: 1rem;
+}
+/* FIN de Muestra o tira de productos */
+/* Redimensionando el mapa en pantallas pequeñas */
+.responsive-iframe{
+    position:relative;
+    padding-top:56.25%; /* 9/16= 0.5625*/
+
+}
+.responsive-iframe iframe{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+}
+/* ---FIN de Redimensionando el mapa en pantallas pequeñas */
+
+/*  Slider de "nosotros"*/
+.image-container{   
+    width: 100%;
+    padding-top:56.25%; /* 9/16= 0.5625*/
+    background-size:cover ;
+    background-position: center;
+    flex-shrink: 0;
+
+}
+.slider{ /*lo mismo que en .product-stripe excepto desde -------*/
+    overflow-x: scroll;  /*hidden quita el scroll horizontal 
+    pero tambien hace que desaparezcan algunos productos*/
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    /*---------*/
+    overflow-x:hidden;
+    
+}
+.slider-container{  /* lo mismo que en .stripe-container excepto desde ------- */
+    display:flex;
+    /*flex-direction: por defecto es = row;*/  
+    /*----------*/
+    transform: translateX(0); 
+    animation: slider 10s infinite;
+}
+    /* Animación de slider */
+@keyframes slider{
+    0%{
+        transform: translateX(0);
+    }
+    20%{
+        transform: translateX(0);
+    }
+    25%{
+        transform: translateX(-100%);
+    }
+    45%{
+        transform: translateX(-100%);
+    }
+    50%{
+        transform: translateX(-200%);
+    }
+    70%{
+        transform: translateX(-200%);
+    }
+    75%{
+        transform: translateX(-300%);
+    }
+    95%{
+        transform: translateX(-300%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+/*  FIN de Slider de "nosotros"*/
+
+footer{
+	padding: 40px;
+	margin-top: 10px;
+	color: rgb(255, 255, 255);
+    background-color: #bc4749;
+	/*background-color: #7f4f24;*/
+    background-size: 100%;
+	text-align: center;
+}
+footer .gap-2{
+    animation-name: anime;
+    /*nombre de la funcion*/
+    animation-duration: 1.5s;
+    /*tiempo que dure la animacion*/
+    animation-timing-function: ease-in;
+    /*tipo de animacion*/
+    animation-iteration-count: infinite;
+    /*veces que se va a repetir*/
+    animation-direction:to;
+    /*en que direccion to-> from > to > from
+    alternative
+    alternative-reverse
+    */
+    /*
+    animation: anime 1.5s ease-in infinite alternative;
+    */
+}
+@keyframes anime{
+       
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.1);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+/*      FORMULARIO      */
+#formulario {
+	float:center;
+	height:auto;
+    width: 90%;
+    padding: 30px 35px;     	
+	border-radius: 10px;
+	/*background-color:#f5e611;	*/
+}
+
+#formulario .btn{
+	width: 50%;
+	margin-top: 20px;
+    margin-left: 25%;
+}
+/*  FIN DE FORMULARIO   */
+
+/*          PRODUCTOS           */
+.card-title2{
+    min-height: 3rem;
+}
+.card-text2{
+    min-height: 1rem;
+}
+.card-title3{
+    min-height: 4rem;
+}
+.card-text3{
+    min-height: 2rem;
+}
+/*  ---------- ANIMACION DE TARJETAS DE PRODUCTOS-----------*/
+#productos .badge{
+    animation-name: anima;
+    /*nombre de la funcion*/
+    animation-duration: 1.5s;
+    /*tiempo que dure la animacion*/
+    animation-timing-function: ease-in;
+    /*tipo de animacion*/
+    animation-iteration-count: infinite;
+    /*veces que se va a repetir*/
+    animation-direction:to;
+}
+@keyframes anima{
+       
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.3);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+/*  ---------- FIN ANIMACION DE TARJETAS-----------*/
+
+
+/*      FIN DE PRODUCTOS        */
